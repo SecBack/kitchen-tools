@@ -3,7 +3,7 @@ require('dotenv').config()
 // init rest api and and db
 const express = require('express')
 const mongoose = require('mongoose')
-const router = require('./src/controllers/routes')
+const leftoverController = require("./src/controllers/LeftoverPostController");
 const mongoString = process.env.DATABASE_URL
 
 // connect to db
@@ -18,10 +18,13 @@ database.once('connected', () => {
     console.log('Database Connected')
 })
 
-// run the server
+// create the server
 const app = express()
 app.use(express.json())
-app.use("/api", router)
+
+// import controllers
+app.use("/api/leftoverpost", leftoverController)
+
 app.listen(3000, () => {
     console.log(`Server Started at ${3000}`)
 })
