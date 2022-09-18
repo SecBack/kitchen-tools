@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Leftovers
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Leftovers</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-fab horizontal="end" vertical="top" slot="fixed" edge>
+    <ion-fab-button id="open-modal">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-card-title class="ion-margin ion-padding-top">A List of all leftovers that are up for grabs right now!</ion-card-title>
+
+  <app-create-leftover-post></app-create-leftover-post>
+
+  <ion-card>
+    <img src="https://picsum.photos/460/300" />
+    <ion-card-header>
+      <ion-card-subtitle>Destination</ion-card-subtitle>
+      <ion-card-title>Madison, WI</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the
+      Wisconsin Territory in 1836.
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -3,6 +3,7 @@ require('dotenv').config()
 // init rest api and and db
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors'); 
 const leftoverController = require("./src/controllers/LeftoverPostController");
 const mongoString = process.env.DATABASE_URL
 
@@ -20,6 +21,7 @@ database.once('connected', () => {
 
 // create the server
 const app = express()
+app.use(cors())
 app.use(express.json())
 
 // import controllers

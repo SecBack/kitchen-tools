@@ -15,8 +15,10 @@ const router = express.Router();
 router.post('/add', async (req, res) => {
     // create a new instance of the LeftoverPost model with the parameters from the client
     const data = new LeftoverPost({
-        picture: req.body.picture,
-        description: req.body.description
+        //picture: req.body.picture,
+        description: req.body.description,
+        where: req.body.where,
+        who: req.body.who
     })
 
     // if the data is valid save it and return 200 OK to client

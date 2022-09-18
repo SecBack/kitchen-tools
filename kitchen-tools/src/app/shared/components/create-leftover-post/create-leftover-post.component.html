@@ -1,0 +1,39 @@
+<ion-modal trigger="open-modal">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()">Cancel</ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <form novalidate>
+        <ion-list>
+          <ion-item>
+            <ion-label position="stacked">To who do we owe the honor?</ion-label>
+            <ion-input type="text" placeholder="Your name..." [(ngModel)]="newLeftoverPost.who"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Whats the occasion?</ion-label>
+            <ion-input type="text" placeholder="Occasion..." [(ngModel)]="newLeftoverPost.description"></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label position="stacked">Where is the food?</ion-label>
+            <ion-input type="text" placeholder="fidge nr, table etc..." [(ngModel)]="newLeftoverPost.where"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">test</ion-label>
+            <ion-input type="text" placeholder="test" [(ngModel)]="test"></ion-input>
+          </ion-item>
+        </ion-list>
+      </form>
+    </ion-content>
+  </ng-template>
+</ion-modal>

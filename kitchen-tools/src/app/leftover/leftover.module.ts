@@ -2,10 +2,11 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab1Page } from './tab1.page';
+import { LeftoverPage } from './leftover.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+import { CreateLeftoverPostComponentModule } from '../shared/components/create-leftover-post/create-leftover-post.module';
 
-import { Tab1PageRoutingModule } from './tab1-routing.module';
+import { LeftoverPageRoutingModule } from './leftover-routing.module';
 
 @NgModule({
   imports: [
@@ -13,8 +14,10 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    Tab1PageRoutingModule
+    LeftoverPageRoutingModule,
+
+    CreateLeftoverPostComponentModule
   ],
-  declarations: [Tab1Page]
+  declarations: [LeftoverPage]
 })
-export class Tab1PageModule {}
+export class LeftoverPageModule {}
