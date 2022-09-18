@@ -17,8 +17,8 @@ router.post('/add', async (req, res) => {
     const data = new LeftoverPost({
         //picture: req.body.picture,
         description: req.body.description,
-        where: req.body.where,
-        who: req.body.who
+        who: req.body.who,
+        where: req.body.where
     })
 
     // if the data is valid save it and return 200 OK to client

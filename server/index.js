@@ -13,10 +13,10 @@ const database = mongoose.connection
 
 // was the connect attempt successful?
 database.on('error', (error) => {
-    console.log(error)
+  console.log(error)
 })
 database.once('connected', () => {
-    console.log('Database Connected')
+  console.log('Database Connected')
 })
 
 // create the server
@@ -28,5 +28,5 @@ app.use(express.json())
 app.use("/api/leftoverpost", leftoverController)
 
 app.listen(3000, () => {
-    console.log(`Server Started at ${3000}`)
+  console.log(`Server Started at ${3000}`)
 })

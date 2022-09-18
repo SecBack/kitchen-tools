@@ -12,13 +12,16 @@ export class LeftoverPostService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllLeftoverPosts(): Observable<LeftoverPost[]> {
+  getAllLeftoverPosts() : Observable<LeftoverPost[]> {
     return this.httpClient.get<LeftoverPost[]>(environment.apiUrl + '/leftoverpost/list')
   }
 
-  addLeftoverPost(newLeftoverPost: LeftoverPost): void {
-    this.httpClient.post(environment.apiUrl + 'leftoverpost/add', {
-      newLeftoverPost
+  addLeftoverPost(newLeftoverPost: LeftoverPost) : Observable<LeftoverPost> {
+    console.log(newLeftoverPost)
+    return this.httpClient.post<LeftoverPost>(environment.apiUrl + '/leftoverpost/add', {
+      description: newLeftoverPost.description,
+      who: newLeftoverPost.who,
+      where: newLeftoverPost.where
     })
   }
 }

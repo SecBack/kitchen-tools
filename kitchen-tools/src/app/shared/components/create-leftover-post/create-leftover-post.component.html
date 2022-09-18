@@ -15,22 +15,17 @@
         <ion-list>
           <ion-item>
             <ion-label position="stacked">To who do we owe the honor?</ion-label>
-            <ion-input type="text" placeholder="Your name..." [(ngModel)]="newLeftoverPost.who"></ion-input>
+            <ion-input type="text" placeholder="Your name..." name="who" [(ngModel)]="newLeftoverPost.who"></ion-input>
           </ion-item>
 
           <ion-item>
             <ion-label position="stacked">Whats the occasion?</ion-label>
-            <ion-input type="text" placeholder="Occasion..." [(ngModel)]="newLeftoverPost.description"></ion-input>
+            <ion-input type="text" placeholder="Occasion..." name="description" [(ngModel)]="newLeftoverPost.description"></ion-input>
           </ion-item>
           
           <ion-item>
             <ion-label position="stacked">Where is the food?</ion-label>
-            <ion-input type="text" placeholder="fidge nr, table etc..." [(ngModel)]="newLeftoverPost.where"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label position="stacked">test</ion-label>
-            <ion-input type="text" placeholder="test" [(ngModel)]="test"></ion-input>
+            <ion-input type="text" placeholder="fidge nr, table etc..." name="where" [(ngModel)]="newLeftoverPost.where"></ion-input>
           </ion-item>
         </ion-list>
       </form>

@@ -11,8 +11,11 @@ import { LeftoverPostService } from '../../services/leftover-post.service';
 export class CreateLeftoverPostComponent {
   @ViewChild(IonModal) modal: IonModal;
 
-  newLeftoverPost: LeftoverPost
-  test: string
+  newLeftoverPost = <LeftoverPost> {
+    who: '',
+    where: '',
+    description: ''
+  }
 
   constructor(
     private leftoverPostService: LeftoverPostService
@@ -25,10 +28,12 @@ export class CreateLeftoverPostComponent {
   }
 
   confirm() {
-    console.log(this.test)
-    console.log(this.newLeftoverPost)
-    this.leftoverPostService.addLeftoverPost(this.newLeftoverPost)
+    this.leftoverPostService.addLeftoverPost(this.newLeftoverPost).subscribe()
 
     this.modal.dismiss('confirm');
+  }
+
+  testfunc(newLeftoverPost: LeftoverPost) {
+    console.log(newLeftoverPost)
   }
 }
