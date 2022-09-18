@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LeftoverPostService } from '../shared/services/leftover-post.service';
 import { LeftoverPost } from '../shared/models/LeftoverPost';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-leftover',
@@ -9,15 +10,17 @@ import { LeftoverPost } from '../shared/models/LeftoverPost';
 })
 export class LeftoverPage implements OnInit {
 
-  leftoverPostList: LeftoverPost[] | undefined
+  leftoverPosts: Observable<LeftoverPost[]>
 
-  constructor(private leftoverPostService: LeftoverPostService) {}
+  constructor(
+    private leftoverPostService: LeftoverPostService
+    ) {
+
+    }
 
   ngOnInit() {
-    this.leftoverPostService.getAllLeftoverPosts().subscribe(data => {
-      this.leftoverPostList = data
-      console.log(data)
-    })
+    this.leftoverPostService.getAllLeftoverPosts()
+    this.leftoverPosts = this.leftoverPostService.leftoverPosts
   }
 
 }

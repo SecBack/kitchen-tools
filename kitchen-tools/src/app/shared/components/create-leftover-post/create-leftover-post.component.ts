@@ -16,6 +16,7 @@ export class CreateLeftoverPostComponent {
     where: '',
     description: ''
   }
+  
 
   constructor(
     private leftoverPostService: LeftoverPostService
@@ -28,12 +29,8 @@ export class CreateLeftoverPostComponent {
   }
 
   confirm() {
-    this.leftoverPostService.addLeftoverPost(this.newLeftoverPost).subscribe()
+    this.leftoverPostService.addLeftoverPost(this.newLeftoverPost)
 
     this.modal.dismiss('confirm');
-  }
-
-  testfunc(newLeftoverPost: LeftoverPost) {
-    console.log(newLeftoverPost)
   }
 }

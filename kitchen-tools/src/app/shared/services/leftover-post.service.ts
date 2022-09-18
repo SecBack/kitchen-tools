@@ -1,27 +1,42 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
-import { LeftoverPost } from '../models/LeftoverPost';
-import { environment } from '../../../environments/environment';
+import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
+import { BehaviorSubject } from 'rxjs'
+import { LeftoverPost } from '../models/LeftoverPost'
+import { environment } from '../../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * The core of the app so far. Here we have a service which implements a reactive pattern
+ */
 export class LeftoverPostService {
 
-  constructor(private httpClient: HttpClient) { }
+  private leftoverPosts$ = new BehaviorSubject<LeftoverPost[]>([])
+  private dataStore: { leftoverPosts: LeftoverPost[] } = { leftoverPosts: [] }
+  readonly leftoverPosts = this.leftoverPosts$.asObservable()
 
-  getAllLeftoverPosts() : Observable<LeftoverPost[]> {
-    return this.httpClient.get<LeftoverPost[]>(environment.apiUrl + '/leftoverpost/list')
+  constructor(
+    private httpClient: HttpClient
+    ) {
+
+    }
+
+  getAllLeftoverPosts() : void {
+    this.httpClient.get<LeftoverPost[]>(environment.apiUrl + '/leftoverpost/list').subscribe(data => {
+      this.dataStore.leftoverPosts = data
+      this.leftoverPosts$.next(Object.assign({}, this.dataStore).leftoverPosts)
+    })
   }
 
-  addLeftoverPost(newLeftoverPost: LeftoverPost) : Observable<LeftoverPost> {
-    console.log(newLeftoverPost)
-    return this.httpClient.post<LeftoverPost>(environment.apiUrl + '/leftoverpost/add', {
+  addLeftoverPost(newLeftoverPost: LeftoverPost) : void {
+    this.httpClient.post<LeftoverPost>(environment.apiUrl + '/leftoverpost/add', {
       description: newLeftoverPost.description,
       who: newLeftoverPost.who,
       where: newLeftoverPost.where
+    }).subscribe(data => {
+      this.dataStore.leftoverPosts.push(data)
+      this.leftoverPosts$.next(Object.assign({}, this.dataStore).leftoverPosts)
     })
   }
 }

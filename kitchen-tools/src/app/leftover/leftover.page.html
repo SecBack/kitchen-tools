@@ -23,15 +23,12 @@
 
   <app-create-leftover-post></app-create-leftover-post>
 
-  <ion-card>
+  <ion-card *ngFor="let leftoverPost of leftoverPosts | async">
     <img src="https://picsum.photos/460/300" />
     <ion-card-header>
-      <ion-card-subtitle>Destination</ion-card-subtitle>
-      <ion-card-title>Madison, WI</ion-card-title>
+      <ion-card-subtitle>{{ leftoverPost.who }}</ion-card-subtitle>
+      <ion-card-title>{{ leftoverPost.where }}</ion-card-title>
     </ion-card-header>
-    <ion-card-content>
-      Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the
-      Wisconsin Territory in 1836.
-    </ion-card-content>
+    <ion-card-content>{{ leftoverPost.description }}</ion-card-content>
   </ion-card>
 </ion-content>
