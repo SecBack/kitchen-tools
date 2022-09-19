@@ -24,6 +24,19 @@
         </a>
       </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-col>
+        <form [formGroup]="form">
+          <ion-list>
+            <ion-item class="ion-margin-bottom">
+              <ion-label position="floating">Your Name</ion-label>
+              <!-- input validation -->
+              <ion-input type="text" formControlName="text"></ion-input>
+            </ion-item>
+          </ion-list>
+        </form>
+      </ion-col>
+    </ion-row>
   </ion-content>
 
 </ion-content>

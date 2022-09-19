@@ -1,4 +1,4 @@
-import { Component, ViewChild} from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 import { LeftoverPost } from '../../models/LeftoverPost';
 import { LeftoverPostService } from '../../services/leftover-post.service';
@@ -19,8 +19,7 @@ export class CreateLeftoverPostComponent {
   }
   
   constructor(
-    // inject the leftover post service
-    private leftoverPostService: LeftoverPostService
+    private leftoverPostService: LeftoverPostService, // inject the leftover post service
   ) {
 
   }

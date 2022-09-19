@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +8,17 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  // the form group 
+  form: FormGroup
+
+  constructor(
+    // build the form
+    private fb: FormBuilder
+  ) {
+    // define the group
+    this.form = this.fb.group({
+      text: [null, [Validators.required, Validators.minLength(5)]],
+    })
+  }
 
 }
