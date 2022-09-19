@@ -13,6 +13,7 @@
     </ion-toolbar>
   </ion-header>
 
+  <!-- the add new leftover post button -->
   <ion-fab horizontal="end" vertical="top" slot="fixed" edge>
     <ion-fab-button id="open-modal">
       <ion-icon name="add"></ion-icon>
@@ -21,8 +22,10 @@
 
   <ion-card-title class="ion-margin ion-padding-top">A List of all leftovers that are up for grabs right now!</ion-card-title>
 
+  <!-- if the button is pressed this is shown (handeld internally) -->
   <app-create-leftover-post></app-create-leftover-post>
 
+  <!-- subscribe to the local observable by pipeing, then loop all the posts -->
   <ion-card *ngFor="let leftoverPost of leftoverPosts | async">
     <img src="https://picsum.photos/460/300" />
     <ion-card-header>

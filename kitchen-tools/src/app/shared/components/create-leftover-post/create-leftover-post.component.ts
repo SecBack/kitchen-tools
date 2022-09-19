@@ -11,23 +11,32 @@ import { LeftoverPostService } from '../../services/leftover-post.service';
 export class CreateLeftoverPostComponent {
   @ViewChild(IonModal) modal: IonModal;
 
+  // needs to be initialized
   newLeftoverPost = <LeftoverPost> {
     who: '',
     where: '',
     description: ''
   }
   
-
   constructor(
+    // inject the leftover post service
     private leftoverPostService: LeftoverPostService
   ) {
 
   }
 
+  /**
+   * closes the modal
+   *
+   */
   cancel() {
     this.modal.dismiss(null, 'cancel');
   }
 
+  /**
+   * if user presses confirm add the new leftover post
+   *
+   */
   confirm() {
     this.leftoverPostService.addLeftoverPost(this.newLeftoverPost)
 

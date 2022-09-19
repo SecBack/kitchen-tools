@@ -11,10 +11,12 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
+      <!-- form for adding a new leftover post -->
       <form novalidate>
         <ion-list>
           <ion-item>
             <ion-label position="stacked">To who do we owe the honor?</ion-label>
+            <!-- because its a form angular need the name prop, i just ngModel for the 2-way binding, like with the rest of the inputs -->
             <ion-input type="text" placeholder="Your name..." name="who" [(ngModel)]="newLeftoverPost.who"></ion-input>
           </ion-item>
 
