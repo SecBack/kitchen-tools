@@ -4,9 +4,9 @@
  * work with
  */
 export interface LeftoverPost {
-    // picture: buffer
-    description: string
-    where: string
-    who: string
-    createdTimeStamp: Date
+  // picture: buffer
+  description: string
+  where: string
+  who: string
+  createdTimeStamp: Date
 }

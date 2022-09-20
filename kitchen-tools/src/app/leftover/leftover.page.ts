@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-leftover',
   templateUrl: 'leftover.page.html',
-  styleUrls: ['leftover.page.scss']
+  styleUrls: ['leftover.page.scss'],
 })
 /**
  * The main page where you can see all the posts, plus a button for adding a new one. this is where

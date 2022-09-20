@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { LeftoverPage } from './leftover.page';
+import { GroceryPage } from './grocery.page'
 
-describe('LeftoverPage', () => {
-  let component: LeftoverPage;
-  let fixture: ComponentFixture<LeftoverPage>;
+describe('GroceryPage', () => {
+  let component: GroceryPage;
+  let fixture: ComponentFixture<GroceryPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [LeftoverPage],
+      declarations: [GroceryPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(LeftoverPage);
+    fixture = TestBed.createComponent(GroceryPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

@@ -1,4 +1,4 @@
-<ion-modal trigger="create-leftover-post">
+<ion-modal trigger="create-grocery">
   <ng-template>
     <ion-header>
       <ion-toolbar>
@@ -15,19 +15,14 @@
       <form novalidate>
         <ion-list>
           <ion-item>
-            <ion-label position="stacked">To who do we owe the honor?</ion-label>
+            <ion-label position="stacked">Grocery name</ion-label>
             <!-- because its a form angular need the name prop, i just ngModel for the 2-way binding, like with the rest of the inputs -->
-            <ion-input type="text" placeholder="Your name..." name="who" [(ngModel)]="newLeftoverPost.who"></ion-input>
+            <ion-input type="text" placeholder="Your name..." name="name" [(ngModel)]="newGrocery.name"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-label position="stacked">Whats the occasion?</ion-label>
-            <ion-input type="text" placeholder="Occasion..." name="description" [(ngModel)]="newLeftoverPost.description"></ion-input>
-          </ion-item>
-          
-          <ion-item>
-            <ion-label position="stacked">Where is the food?</ion-label>
-            <ion-input type="text" placeholder="fidge nr, table etc..." name="where" [(ngModel)]="newLeftoverPost.where"></ion-input>
+            <ion-toggle slot="end" name="kiwi" color="success" name="needed" [(ngModel)]="newGrocery.needed"></ion-toggle>
+            <ion-label>Is this needed right now?</ion-label>
           </ion-item>
         </ion-list>
       </form>

@@ -6,7 +6,7 @@ import { LeftoverPostService } from '../../services/leftover-post.service';
 @Component({
   selector: 'app-create-leftover-post',
   templateUrl: './create-leftover-post.component.html',
-  styleUrls: ['./create-leftover-post.component.scss'],
+  styleUrls: ['./create-leftover-post.component.scss']
 })
 export class CreateLeftoverPostComponent {
   @ViewChild(IonModal) modal: IonModal;

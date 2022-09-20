@@ -12,26 +12,28 @@
       <ion-title size="large">Leftovers</ion-title>
     </ion-toolbar>
   </ion-header>
-
+  
   <!-- the add new leftover post button -->
   <ion-fab horizontal="end" vertical="top" slot="fixed" edge>
-    <ion-fab-button id="open-modal">
+    <ion-fab-button id="create-leftover-post">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-
-  <ion-card-title class="ion-margin ion-padding-top">A List of all leftovers that are up for grabs right now!</ion-card-title>
-
   <!-- if the button is pressed this is shown (handeld internally) -->
   <app-create-leftover-post></app-create-leftover-post>
 
-  <!-- subscribe to the local observable by pipeing, then loop all the posts -->
-  <ion-card *ngFor="let leftoverPost of leftoverPosts | async">
-    <img src="https://picsum.photos/460/300" />
-    <ion-card-header>
-      <ion-card-subtitle>{{ leftoverPost.who }}</ion-card-subtitle>
-      <ion-card-title>{{ leftoverPost.where }}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>{{ leftoverPost.description }}</ion-card-content>
-  </ion-card>
+  <ion-content>
+    <ion-card-title class="ion-margin ion-padding-top">A List of all leftovers that are up for grabs right now!</ion-card-title>
+  
+    <!-- subscribe to the local observable by pipeing, then loop all the posts -->
+    <ion-card *ngFor="let leftoverPost of leftoverPosts | async">
+      <img src="https://picsum.photos/460/300" />
+      <ion-card-header>
+        <ion-card-subtitle>{{ leftoverPost.who }}</ion-card-subtitle>
+        <ion-card-title>{{ leftoverPost.where }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>{{ leftoverPost.description }}</ion-card-content>
+    </ion-card>
+  </ion-content>
+
 </ion-content>

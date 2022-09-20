@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Groceries
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Groceries</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-fab horizontal="end" vertical="top" slot="fixed" edge>
+    <ion-fab-button id="create-grocery">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <!-- if the button is pressed open the create grocery dialog -->
+  <app-create-grocery></app-create-grocery>
+
+  <ion-content>
+    
+  </ion-content>
+
+</ion-content>
