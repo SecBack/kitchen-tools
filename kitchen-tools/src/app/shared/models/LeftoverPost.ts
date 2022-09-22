@@ -5,6 +5,7 @@
  */
 export interface LeftoverPost {
   // picture: buffer
+  _id: string // needs an '_' because of mongodb
   description: string
   where: string
   who: string

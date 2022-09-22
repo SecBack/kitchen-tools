@@ -17,12 +17,12 @@
           <ion-item>
             <ion-label position="stacked">Grocery name</ion-label>
             <!-- because its a form angular need the name prop, i just ngModel for the 2-way binding, like with the rest of the inputs -->
-            <ion-input type="text" placeholder="Your name..." name="name" [(ngModel)]="newGrocery.name"></ion-input>
+            <ion-input type="text" placeholder="Grocery name.." name="name" [(ngModel)]="newGrocery.name"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-toggle slot="end" name="kiwi" color="success" name="needed" [(ngModel)]="newGrocery.needed"></ion-toggle>
             <ion-label>Is this needed right now?</ion-label>
+            <ion-toggle slot="end" name="kiwi" color="success" name="needed" [(ngModel)]="newGrocery.needed"></ion-toggle>
           </ion-item>
         </ion-list>
       </form>

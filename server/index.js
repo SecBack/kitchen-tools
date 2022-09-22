@@ -4,8 +4,9 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors'); 
-const leftoverController = require("./src/controllers/LeftoverPostController");
-const mongoString = process.env.DATABASE_URL
+const leftoverController = require("./src/controllers/LeftoverPostController")
+const groceryController = require("./src/controllers/GroceryController")
+const mongoString = process.env.DB_URL
 
 // connect to db
 mongoose.connect(mongoString, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -26,6 +27,7 @@ app.use(express.json())
 
 // import controllers
 app.use("/api/leftoverpost", leftoverController)
+app.use("/api/grocery", groceryController)
 
 app.listen(3000, () => {
   console.log(`Server Started at ${3000}`)

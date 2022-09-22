@@ -33,4 +33,24 @@ export class GroceryPage implements OnInit{
     this.groceries = this.groceryService.groceries
   }
 
+  /**
+   * Change given grocery status to have, follow metod for further explanation
+   *
+   * @param   {Grocery}  grocery  
+   *
+   */
+  groceryAdded(grocery: Grocery) {
+    this.groceryService.changeGrocery(grocery, true)
+    
+  }
+
+  /**
+   * Chnage given grocery status go needed, follow metod for further explanation
+   *
+   * @param   {Grocery}  grocery
+   *
+   */
+  groceryRemoved(grocery: Grocery) {
+    this.groceryService.changeGrocery(grocery, false)
+  }
 }

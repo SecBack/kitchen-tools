@@ -42,13 +42,35 @@ export class GroceryService {
   /**
    * Given a new grocery post it, described in leftover post serivce
    *
+   * @param   {Grocery}  newGrocery 
+   *
+   * @return  {void} 
    */
   addGrocery(newGrocery: Grocery) : void {
     this.httpClient.post<Grocery>(environment.apiUrl + '/grocery/add', {
       name: newGrocery.name,
-      needed: newGrocery.needed,
+      needed: !newGrocery.needed,
     }).subscribe(response => {
       this.dataStore.push(response)
+      this.groceries$.next(this.dataStore)
+    })
+  }
+
+  /**
+   * Given a grocery and a needed bool update the grocery, simply meaning
+   * changing the needed property on the grocery object, also in the db
+   *
+   * @param   {Grocery}  grocery  the given grocery
+   * @param   {boolean}  needed   the updata bool for the needed property
+   *
+   * @return  {void}
+   */
+  changeGrocery(grocery: Grocery, needed: boolean) : void {
+    this.httpClient.patch<Grocery>(environment.apiUrl + '/grocery/update/' + grocery._id, {
+      name: grocery.name,
+      needed: needed
+    }).subscribe(response => {
+      this.dataStore.find((x => x.name == response.name)).needed = response.needed
       this.groceries$.next(this.dataStore)
     })
   }

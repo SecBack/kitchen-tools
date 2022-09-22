@@ -4,6 +4,7 @@
  * work with
  */
 export interface Grocery {
+  _id: string // needs an '_' because of mongodb
   name: string
   needed: boolean
   createdTimeStamp: Date
