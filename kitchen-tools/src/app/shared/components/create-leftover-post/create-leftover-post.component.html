@@ -31,6 +31,17 @@
           </ion-item>
         </ion-list>
       </form>
+      
+      <ion-card-subtitle class="ion-margin-top">This how the post looks so far</ion-card-subtitle>
+      <ion-card>
+          <img *ngIf="!capturedPhoto" (click)="capturePhoto()" src="https://picsum.photos/460/300">
+          <img *ngIf="capturedPhoto" [src]="capturedPhoto.webPath">
+        <ion-card-header>
+          <ion-card-subtitle>{{ newLeftoverPost.who }}</ion-card-subtitle>
+          <ion-card-title>{{ newLeftoverPost.where }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>{{ newLeftoverPost.description }}</ion-card-content>
+      </ion-card>
     </ion-content>
   </ng-template>
 </ion-modal>

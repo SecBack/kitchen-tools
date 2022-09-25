@@ -57,10 +57,7 @@ export class GroceryPage implements OnInit {
     this.items.closeOpened()
   }
 
-  timeout(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-
+  
   /**
    * This method shows the user a tip about how to use the grocery list. first waits a bit then it
    * swipes first grocery element right then left to reveal the options. Teaching the user how to
@@ -71,14 +68,28 @@ export class GroceryPage implements OnInit {
   async showSwipeTip() {
     await this.timeout(1500)
     this.items.open('start')
-
-    await this.timeout(500)
+    
+    await this.timeout(800)
     this.items.closeOpened()
-
+    
     await this.timeout(100)
     this.items.open('end')
-
-    await this.timeout(500)
+    
+    await this.timeout(800)
     this.items.closeOpened()
+  }
+
+  /**
+   * Make the setTimeout function return a promise so i can use the much more beautiful async await
+   * keywords. Lets the real here, the setTimeout should really just do that by default
+   *
+   * @param   {int}  ms  amount of miliseconds to timeout
+   *
+   * @return  {Promise<unknown>}      return a promise
+   */
+  timeout(ms) {
+    // turn the setTimeout into a promise, pass setTimeout as a callback function that resolves 
+    // after setTimeout is finished
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 }

@@ -2,14 +2,20 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 
+/**
+ * An array that defines all the routes in the tab menu in the bottom of the app.
+ * Path refers to the nested url, meaning tabs/leftover leads to the leftover page.
+ *
+ * @var {[type]}
+ */
 const routes: Routes = [
   {
-    path: 'tabs',
-    component: TabsPage,
-    children: [
+    path: 'tabs', // the suburl for the menu
+    component: TabsPage, // the menu component
+    children: [ // the last part of the url
       {
-        path: 'leftover',
-        loadChildren: () => import('../leftover/leftover.module').then(m => m.LeftoverPageModule)
+        path: 'leftover', // leads to leftover
+        loadChildren: () => import('../leftover/leftover.module').then(m => m.LeftoverPageModule) // links the path to the component
       },
       {
         path: 'grocery',
@@ -27,7 +33,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: '',
+    path: '', // no url leads to the leftover page, making it the starting page
     redirectTo: '/tabs/leftover',
     pathMatch: 'full'
   }

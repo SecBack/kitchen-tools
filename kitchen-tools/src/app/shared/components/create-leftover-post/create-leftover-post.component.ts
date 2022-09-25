@@ -1,7 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, importProvidersFrom, ViewChild, OnInit } from '@angular/core';
+import { Photo } from '@capacitor/camera';
 import { IonModal } from '@ionic/angular';
 import { LeftoverPost } from '../../models/LeftoverPost';
 import { LeftoverPostService } from '../../services/leftover-post.service';
+import { PhotoService } from '../../services/photo.service';
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
 @Component({
   selector: 'app-create-leftover-post',
@@ -13,15 +16,24 @@ export class CreateLeftoverPostComponent {
 
   // needs to be initialized
   newLeftoverPost = <LeftoverPost> {
-    who: '',
-    where: '',
-    description: ''
+    image: undefined,
+    who: 'Name...',
+    where: 'Fridge nr, table etc..."',
+    description: 'Ocasion...'
   }
+  capturedPhoto: Photo
   
   constructor(
     private leftoverPostService: LeftoverPostService, // inject the leftover post service
+    private photoService: PhotoService// inject the photo service
   ) {
+    defineCustomElements(window);
+  }
 
+  async capturePhoto() : Promise<void> {    
+    await this.photoService.takePhoto()
+    this.capturedPhoto = this.photoService.capturedPhoto
+    console.log(this.capturePhoto)
   }
 
   /**
