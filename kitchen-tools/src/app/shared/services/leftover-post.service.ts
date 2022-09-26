@@ -73,15 +73,14 @@ export class LeftoverPostService {
   addLeftoverPost(newLeftoverPost: LeftoverPost) : void {
     // post the given leftover post to our api
     this.httpClient.post<LeftoverPost>(environment.apiUrl + '/leftoverpost/add', {
+      image: newLeftoverPost.image,
       description: newLeftoverPost.description,
       who: newLeftoverPost.who,
       where: newLeftoverPost.where
       // subscribe to the response
     }).subscribe(response => {
-      // push the response to our intermediate variable
-      this.dataStore.push(response)
-      // again update the observable, cast the new data to the observable
-      this.leftoverPosts$.next(this.dataStore)
+      this.dataStore.push(response) // push the response to our intermediate variable
+      this.leftoverPosts$.next(this.dataStore) // again update the observable, cast the new data to the observable
     })
   }
 }

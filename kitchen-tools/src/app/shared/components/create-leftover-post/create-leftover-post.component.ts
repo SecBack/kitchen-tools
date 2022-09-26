@@ -25,7 +25,7 @@ export class CreateLeftoverPostComponent {
   
   constructor(
     private leftoverPostService: LeftoverPostService, // inject the leftover post service
-    private photoService: PhotoService// inject the photo service
+    private photoService: PhotoService // inject the photo service
   ) {
     defineCustomElements(window);
   }
@@ -33,7 +33,6 @@ export class CreateLeftoverPostComponent {
   async capturePhoto() : Promise<void> {    
     await this.photoService.takePhoto()
     this.capturedPhoto = this.photoService.capturedPhoto
-    console.log(this.capturePhoto)
   }
 
   /**
@@ -41,7 +40,7 @@ export class CreateLeftoverPostComponent {
    *
    */
   cancel() {
-    this.modal.dismiss(null, 'cancel');
+    this.modal.dismiss(null, 'cancel')
   }
 
   /**
@@ -51,6 +50,6 @@ export class CreateLeftoverPostComponent {
   confirm() {
     this.leftoverPostService.addLeftoverPost(this.newLeftoverPost)
 
-    this.modal.dismiss('confirm');
+    this.modal.dismiss('confirm')
   }
 }

@@ -31,7 +31,7 @@ export class GroceryPage implements OnInit {
    *
    */
   ngOnInit() : void {
-    // via the leftover post service get all posts from the api
+    // via the grocery service get all posts from the api
     this.groceryService.getGroceries()
     // assign the local observable to the service observable. and just like that data updates are taken care of
     this.groceries = this.groceryService.groceries
